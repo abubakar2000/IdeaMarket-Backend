@@ -10,8 +10,7 @@ import (
 	"log"
 	"net"
 	"os"
-
-	_ "github.com/go-sql-driver/mysql"
+	// _ "github.com/go-sql-driver/mysql"
 )
 
 /* ---------------------------------------------------------------structure and methods used for building a Blockchain ---------------------------------------------------------------*/
@@ -222,7 +221,7 @@ func Write_to_json(file_name string, chain_head *Block) {
 
 // main method
 func main() {
-	test_db()
+	// test_db()
 
 	var unsolved_problems []string
 	unsolved_problems = append(unsolved_problems, "Problem1")
