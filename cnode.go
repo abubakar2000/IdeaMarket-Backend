@@ -2,7 +2,7 @@ package main
 
 import (
 	"crypto/sha256"
-	"database/sql"
+
 	"encoding/gob"
 	"encoding/json"
 	"fmt"
@@ -10,6 +10,7 @@ import (
 	"log"
 	"net"
 	"os"
+	// "database/sql"
 	// _ "github.com/go-sql-driver/mysql"
 )
 
@@ -221,8 +222,8 @@ func Write_to_json(file_name string, chain_head *Block) {
 
 // main method
 func main() {
-	// test_db()
-
+	//test_db()
+	fmt.Println("HELLOOOOOOO")
 	var unsolved_problems []string
 	unsolved_problems = append(unsolved_problems, "Problem1")
 	unsolved_problems = append(unsolved_problems, "Problem2")
@@ -275,28 +276,28 @@ type user struct {
 }
 
 // this method is used to create connection with mysql database
-func test_db() {
-	db, err := sql.Open("mysql", "root:wasif@tcp(127.0.0.1:3306)/ideamarket")
-	if err != nil {
-		panic(err.Error())
-	}
-	results, err := db.Query("SELECT * from user")
-	if err != nil {
-		panic(err.Error()) // proper error handling instead of panic in your app
-	}
+// func test_db() {
+// 	db, err := sql.Open("mysql", "root:wasif@tcp(127.0.0.1:3306)/ideamarket")
+// 	if err != nil {
+// 		panic(err.Error())
+// 	}
+// 	results, err := db.Query("SELECT * from user")
+// 	if err != nil {
+// 		panic(err.Error()) // proper error handling instead of panic in your app
+// 	}
 
-	for results.Next() {
-		var tmp_user user
-		// for each row, scan the result into our tag composite object
-		err = results.Scan(&tmp_user.username, &tmp_user.password, &tmp_user.balance, &tmp_user.email, &tmp_user.phonenumber)
-		if err != nil {
-			panic(err.Error()) // proper error handling instead of panic in your app
-		}
-		// and then print out the tag's Name attribute
-		fmt.Println(tmp_user)
-	}
+// 	for results.Next() {
+// 		var tmp_user user
+// 		// for each row, scan the result into our tag composite object
+// 		err = results.Scan(&tmp_user.username, &tmp_user.password, &tmp_user.balance, &tmp_user.email, &tmp_user.phonenumber)
+// 		if err != nil {
+// 			panic(err.Error()) // proper error handling instead of panic in your app
+// 		}
+// 		// and then print out the tag's Name attribute
+// 		fmt.Println(tmp_user)
+// 	}
 
-	// defer the close till after the main function has finished
-	// executing
-	defer db.Close()
-}
+// 	// defer the close till after the main function has finished
+// 	// executing
+// 	defer db.Close()
+// }

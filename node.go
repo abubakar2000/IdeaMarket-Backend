@@ -76,9 +76,9 @@ func Always_listen_to_server(conn net.Conn) {
 		dec := gob.NewDecoder(conn)
 		err := dec.Decode(&mychain)
 		checkError(err)
-		// fmt.Print("Updated Blockchain : ")
-		// ListBlocks(mychain)
-		// fmt.Print("\n\n\n")
+		fmt.Print("Updated Blockchain : ")
+		ListBlocks(mychain)
+		fmt.Print("\n\n\n")
 	}
 }
 
